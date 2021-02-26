@@ -41,6 +41,30 @@ function processGuess(){
     }
 }
 </script>
+<div class="container">
+    <img id="myPlant" src="Neillovka.jpg" alt="connection error" width="200" height="200" onclick="rotateImage()">
+</div>
+<script>
+    var currentImage = 0;
+    function rotateImage(){
+        switch(currentImage){
+            case 0: 
+                currentImage+=1;
+                document.getElementById("myPlant").src = "Neillovka.jpg"
+                break;
+            case 1:
+                currentImage+=1;
+                document.getElementById("myPlant").src = "aloe.jpg"
+                break;
+            case 2:
+                currentImage+=1;
+                document.getElementById("myPlant").src = "vestia.jpg"
+                break;
+            default:
+                document.getElementById("myPlant").src = "Neillovka.jpg"
+        }
+    }
+</script>
 
 </body>
 </html> 

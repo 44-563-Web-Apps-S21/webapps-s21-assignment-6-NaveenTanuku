@@ -27,14 +27,54 @@ function permutations (){
     console.log("Getting form values")
     first = document.getElementById("form1_first").value
     second = document.getElementById("form1_second").value
-    confirmed = confirm("Are these the values? "+first+" and "+second)
+    //confirmed = confirm("Are these the values? "+first+" and "+second)
     var product =1
     out = document.getElementById("result")
-    for(var i = first; i>(first-second);i--){
+    for(var i = first; i>=(first-second+1);i--){
         product *= i
     }
     out.innerHTML = first + " permute " + second + " is " + product
 }
+</script>
+<form>
+    <input type="radio" id="r_plus" name="calc" value="plus"  onclick="processRadio(this.value)"  >
+        <label for="r_plus">+</label></br>
+    <input type="radio" id="r_minus" name="calc" value="minus" onclick="processRadio(this.value)"   >
+    <label for="r_minus">-</label></br>
+    <input type="radio" id="r_multi" name="calc" value="times"  onclick="processRadio(this.value)"  >
+    <label for="r_multi">*</label></br>
+    <input type="radio" id="r_divide" name="calc" value="divide"  onclick="processRadio(this.value)"  >
+        <label for="r_divide">/</label></br>
+</form>
+<p id="answer">Answer is </p>
+<script>
+    function processRadio(operator){
+        one = document.getElementById("form1_first").value
+        two = document.getElementById("form1_second").value
+        //var operator = document.getElementsByName("calc")
+        //document.getElementByID("answer").value=operator
+        console.log(answer.value) 
+        ans = 0;
+        var symbol
+        output = document.getElementById("answer")
+        if(document.getElementById("r_plus").checked){
+            ans = parseInt(one) + parseInt(two)
+            symbol = " + "
+        }
+        if(document.getElementById("r_minus").checked){
+            ans = one - two
+            symbol = " - "
+        }
+        if(document.getElementById("r_multi").checked){
+            ans = one * two
+            symbol = " *  "
+        }
+        if(document.getElementById("r_divide").checked){
+            ans = one / two
+            symbol = " / "
+        }
+        output.innerHTML = one + symbol + two + " = " + ans
+    }
 </script>
 
 </body>
